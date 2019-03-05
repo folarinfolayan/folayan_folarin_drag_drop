@@ -11,8 +11,7 @@
 	//get a reference to the button at the bottom so we can change the puzzle
 	let puzzleSelectors = document.querySelectorAll("#buttonHolder img");
 	let DropZones = document.querySelectorAll('.drop-zone');
-
-
+	
 	//function go to the middle
 	function createPuzzlePieces(pictureIndex) {
 		//generate images here => need to make 4 ("topleft", "topright", "bottomleft", "bottomright")
@@ -74,7 +73,7 @@
 				piecesBoard.innerHTML ="";
 
 				//generate new pieces
-				createPuzzlePieces(this.dataset.PuzzleRef);
+				createPuzzlePieces(this.dataset.puzzleref);
 				//debugger
 				var images = document.getElementsByClassName('puzzle-image')
 					while(images.lenght > 4){
