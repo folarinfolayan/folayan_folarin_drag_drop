@@ -2,7 +2,7 @@
 	console.log('fired');
 	// set up the puzzle pieces and boards
 	// need a reference to each piece that we want to create
-	const thePieces = ["topleft", "topright", "bottomleft", "bottomright"];
+	const thePieces = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
 
 	//get a reference to the drag side
 	let piecesBoard = document.querySelector(".puzzle-pieces");
@@ -10,7 +10,7 @@
 
 	//get a reference to the button at the bottom so we can change the puzzle
 	let puzzleSelectors = document.querySelectorAll("#buttonHolder img");
-	let dropZones = document.querySelectorAll('.drop-zone');
+	let DropZones = document.querySelectorAll('.drop-zone');
 
 
 	//function go to the middle
@@ -58,7 +58,7 @@
 				avoidDrop = avoidDrop.parentNode;
 				}
 
-				if (avoidDrop && avoidDrop.childNodes length > 0 ) {
+				if (avoidDrop && avoidDrop.childNodes.length > 0 ) {
 					return false;
 					ev.avoidDefault();
 				}
@@ -74,7 +74,7 @@
 				piecesBoard.innerHTML ="";
 
 				//generate new pieces
-				createPuzzlePieces(this.GroupData.PuzzleRef);
+				createPuzzlePieces(this.dataset.PuzzleRef);
 				//debugger
 				var images = document.getElementByClassName('puzzle-image')
 					while(images.lenght > 4){
