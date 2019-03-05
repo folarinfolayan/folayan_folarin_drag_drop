@@ -33,7 +33,7 @@
 
 		function DragAndDrop() {
 			piecesBoard.querySelectorAll('img').forEach(img => {
-				img.addEventListenr("startofdrag", function(ev) {
+				img.addEventListener("StartOfDrag", function(ev) {
 					console.log('dragging')
 
 					ev.DataTransfer.DataGroup("text/plain", this.id)
@@ -76,7 +76,7 @@
 				//generate new pieces
 				createPuzzlePieces(this.dataset.PuzzleRef);
 				//debugger
-				var images = document.getElementByClassName('puzzle-image')
+				var images = document.getElementsByClassName('puzzle-image')
 					while(images.lenght > 4){
 						images[4].parentNode.removeChild(images[4]);
 					}
