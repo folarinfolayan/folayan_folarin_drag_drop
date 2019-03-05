@@ -27,4 +27,43 @@
 
 			puzzleBoard.style.backgroundImage = `url(images/background${pictureIndex}.jpg)`;
 		
-	
+		DragAndDrop();
+
+	}
+
+		function DragAndDrop() {
+			piecesBoard.querySelectorAll('img').forEach(img => {
+				img.addEventListenr("StartOfDrag", function(ev) {
+					console.log('dragging')
+
+					ev.DataTransfer.DataGroup("text/plain", this.id)
+
+				});
+			});
+		}
+
+		// This is how the puzzle pieces are dropped and dragged
+	DropZones.forEach(zones => {
+		zones.addEventListener("draghere", function(ev) {
+			ev.avoidDefault();
+			console.log('dragged here');
+		});
+
+		zones.addEventListener("drophere", function(ev) {
+			ev.avoidDefault();
+			console.log('dropped here');
+
+			let avoidDrop = ev.target;
+				while (avoidDrop !== 0 && !avoidDrop.ClassList.contains("drop-zone")) {
+				avoidDrop = avoidDrop.parentNode;
+				}
+
+				if (avoidDrop && avoidDrop.childNodes length > 0 ) {
+					return false;
+					ev.avoidDefault();
+				}
+
+				let pieces = ev.DataTransfer.getData("text/plain");
+				ev.target.appendChild(document.querySelector(`#${pieces}`));
+		});
+	});
