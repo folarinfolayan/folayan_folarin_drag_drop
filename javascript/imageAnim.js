@@ -33,7 +33,7 @@
 
 		function DragAndDrop() {
 			piecesBoard.querySelectorAll('img').forEach(img => {
-				img.addEventListenr("StartOfDrag", function(ev) {
+				img.addEventListenr("startofdrag", function(ev) {
 					console.log('dragging')
 
 					ev.DataTransfer.DataGroup("text/plain", this.id)
