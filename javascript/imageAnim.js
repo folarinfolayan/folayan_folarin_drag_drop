@@ -35,7 +35,7 @@
 				img.addEventListener("StartOfDrag", function(ev) {
 					console.log('dragging')
 
-					ev.DataTransfer.DataGroup("text/plain", this.id)
+					ev.dataTransfer.setData("text/plain", this.id)
 
 				});
 			});
@@ -44,12 +44,12 @@
 		// This is how the puzzle pieces are dropped and dragged
 	DropZones.forEach(zones => {
 		zones.addEventListener("draghere", function(ev) {
-			ev.avoidDefault();
+			ev.preventDefault();
 			console.log('dragged here');
 		});
 
 		zones.addEventListener("drophere", function(ev) {
-			ev.avoidDefault();
+			ev.preventDefaultDefault();
 			console.log('dropped here');
 
 			let avoidDrop = ev.target;
@@ -59,10 +59,10 @@
 
 				if (avoidDrop && avoidDrop.childNodes.length > 0 ) {
 					return false;
-					ev.avoidDefault();
+					ev.preventDefault();
 				}
 
-				let pieces = ev.DataTransfer.getData("text/plain");
+				let pieces = ev.dataTransfer.getData("text/plain");
 				ev.target.appendChild(document.querySelector(`#${pieces}`));
 		});
 	});
