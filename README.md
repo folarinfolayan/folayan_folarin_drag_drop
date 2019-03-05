@@ -10,4 +10,4 @@ This is where we correct the following bugs
 
 The first bug will be found in bug_1 branch.
 
-The seconf bug will be found in bug_2 branch.
+The second bug will be found in bug_2 branch.
