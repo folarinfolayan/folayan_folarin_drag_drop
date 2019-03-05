@@ -67,3 +67,23 @@
 				ev.target.appendChild(document.querySelector(`#${pieces}`));
 		});
 	});
+
+			function restPuzzlePieces() {
+				// change the current puzzle, regenerate the pieces
+
+				piecesBoard.innerHTML ="";
+
+				//generate new pieces
+				createPuzzlePieces(this.GroupData.PuzzleRef);
+				//debugger
+				var images = document.getElementByClassName('puzzle-image')
+					while(images.lenght > 4){
+						images[4].parentNode.removeChild(images[4]);
+					}
+			}
+
+			// event handling goes here
+
+			puzzleSelectors.forEach(button => button.addEventListener("click", restPuzzlePieces));
+
+})();
